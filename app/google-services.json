@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "592172535256",
+    "firebase_url": "https://mobilefire-a6b85.firebaseio.com",
+    "project_id": "mobilefire-a6b85",
+    "storage_bucket": "mobilefire-a6b85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592172535256:android:b8bb4c65cfa45a85d9f6ad",
+        "android_client_info": {
+          "package_name": "com.example.mobilefire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592172535256-lggg78htchbek8funquic7sepkgmoo8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0VVaFrbI53UxW6fBHxb_pVVPsdse_XfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592172535256-lggg78htchbek8funquic7sepkgmoo8p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
