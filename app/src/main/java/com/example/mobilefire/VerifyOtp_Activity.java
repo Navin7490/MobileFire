@@ -66,12 +66,14 @@ public class VerifyOtp_Activity extends AppCompatActivity {
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken)
                     {
                         otpid=s;
+                        Toast.makeText(VerifyOtp_Activity.this, "OTP Send  On "+phonenumber+" Mobile number", Toast.LENGTH_LONG).show();
+
                     }
 
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential)
                     {
-                        signInWithPhoneAuthCredential(phoneAuthCredential);
+                       // signInWithPhoneAuthCredential(phoneAuthCredential);
 
                     }
 
@@ -89,8 +91,8 @@ public class VerifyOtp_Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(VerifyOtp_Activity.this, "Regiter success", Toast.LENGTH_SHORT).show();
-                            finish();
+                            Toast.makeText(VerifyOtp_Activity.this, "Login success", Toast.LENGTH_SHORT).show();
+                           // finish();
                             // ...
                         } else {
                             Toast.makeText(VerifyOtp_Activity.this, "wrong otp", Toast.LENGTH_SHORT).show();
