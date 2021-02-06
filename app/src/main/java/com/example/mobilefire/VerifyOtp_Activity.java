@@ -3,6 +3,7 @@ package com.example.mobilefire;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,7 @@ public class VerifyOtp_Activity extends AppCompatActivity {
                     Toast.makeText(VerifyOtp_Activity.this, "enter otp", Toast.LENGTH_SHORT).show();
                 }
                 else if (otp.length()!=6){
-                    Toast.makeText(VerifyOtp_Activity.this, "invalide otp", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VerifyOtp_Activity.this, "invalid otp", Toast.LENGTH_SHORT).show();
 
                 }
                 else {
@@ -66,6 +67,7 @@ public class VerifyOtp_Activity extends AppCompatActivity {
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken)
                     {
                         otpid=s;
+
                         Toast.makeText(VerifyOtp_Activity.this, "OTP Send  On "+phonenumber+" Mobile number", Toast.LENGTH_LONG).show();
 
                     }
@@ -73,7 +75,9 @@ public class VerifyOtp_Activity extends AppCompatActivity {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential)
                     {
-                       // signInWithPhoneAuthCredential(phoneAuthCredential);
+                        String v= phoneAuthCredential.getSmsCode();
+                        etotp.setText(v);
+                        signInWithPhoneAuthCredential(phoneAuthCredential);
 
                     }
 
@@ -91,6 +95,9 @@ public class VerifyOtp_Activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            Intent intent=new Intent(VerifyOtp_Activity.this,ProfileActivity.class);
+                            startActivity(intent);
+                            finish();
                             Toast.makeText(VerifyOtp_Activity.this, "Login success", Toast.LENGTH_SHORT).show();
                            // finish();
                             // ...
