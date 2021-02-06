@@ -8,17 +8,36 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_margin="@dimen/_10sdp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <EditText
             android:id="@+id/Et_Otp"
             android:hint="enter otp"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <com.chaos.view.PinView
+            android:id="@+id/pinViewOtp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_below="@+id/Et_Otp"
+            app:itemCount="6"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:itemWidth="@dimen/_40sdp"
+            app:itemHeight="@dimen/_40sdp"
+            app:itemRadius="@dimen/_10sdp"
+            app:lineColor="@color/colorPrimary"
+            style="@style/PinWidget.PinView"
+            android:inputType="number"
+            android:cursorVisible="true"
+            app:hideLineWhenFilled="true"
+            app:itemSpacing="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp" />
         <Button
             android:id="@+id/Btn_Verify"
             android:layout_below="@+id/Et_Otp"
             android:text="verify otp"
-            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_100sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </RelativeLayout>

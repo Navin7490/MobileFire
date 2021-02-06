@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -22,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 public class VerifyOtp_Activity extends AppCompatActivity {
     EditText etotp;
+    PinView pinView;
     Button btnverify;
     String phonenumber;
     String otpid;
@@ -32,13 +34,15 @@ public class VerifyOtp_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_verify_otp_);
         phonenumber=getIntent().getStringExtra("mobile").toString();
         etotp=findViewById(R.id.Et_Otp);
+        pinView=findViewById(R.id.pinViewOtp);
         btnverify=findViewById(R.id.Btn_Verify);
         mAuth=FirebaseAuth.getInstance();
         initiateotp();
         btnverify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String otp=etotp.getText().toString();
+               // String otp=etotp.getText().toString();
+                String otp=pinView.getText().toString();
                 if (otp.isEmpty()){
                     Toast.makeText(VerifyOtp_Activity.this, "enter otp", Toast.LENGTH_SHORT).show();
                 }
@@ -76,7 +80,7 @@ public class VerifyOtp_Activity extends AppCompatActivity {
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential)
                     {
                         String v= phoneAuthCredential.getSmsCode();
-                        etotp.setText(v);
+                        pinView.setText(v);
                         signInWithPhoneAuthCredential(phoneAuthCredential);
 
                     }
